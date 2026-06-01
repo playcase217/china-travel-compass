@@ -1,6 +1,6 @@
 # China Travel Compass
 
-English-language China travel guide for international visitors, published at `https://juzhiic.com`.
+English-language China travel guide for international visitors, published at `https://travel.juzhiic.com`.
 
 ## Local preview
 
@@ -19,16 +19,12 @@ Open `http://localhost:4173`.
 
 ## GitHub Pages setup
 
-In the GitHub repository, open `Settings > Pages` and select `GitHub Actions` as the source. The committed `public/CNAME` file configures `juzhiic.com`.
+In the GitHub repository, open `Settings > Pages` and select `GitHub Actions` as the source. The committed `public/CNAME` file configures `travel.juzhiic.com`.
 
 Configure these DNS records with your domain provider:
 
 | Type | Host | Value |
 | --- | --- | --- |
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | playcase217.github.io |
+| CNAME | travel | playcase217.github.io |
 
 After DNS propagation, enable `Enforce HTTPS` under `Settings > Pages`.
