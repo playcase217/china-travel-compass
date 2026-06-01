@@ -3,15 +3,21 @@ title: Your First Trip to China: A Practical Starter Guide
 description: A clear first-time guide to planning a China trip, from payments and mobile data to trains, hotels, and a realistic 7-day route.
 slug: first-trip-to-china
 category: First-time essentials
-date: 2026-06-01
+published: 2026-06-01
+updated: 2026-06-01
 readTime: 9 min read
 hero: /images/guides/first-trip-to-china/beijing-hero.webp
 heroAlt: A traveler looking toward traditional palace rooftops in Beijing in the early morning
+author: China Travel Compass Editorial Team
 ---
 
 China rewards a little preparation. The transport network is extensive, cities are generally easy to navigate, and everyday travel can be remarkably smooth once your phone, payment methods, and key bookings are ready.
 
 This guide covers the setup that matters most before your first visit. Entry rules can vary by nationality and change over time, so confirm the latest requirements with the Chinese embassy or consulate that serves your place of residence before booking.
+
+## At a glance
+
+For a smooth first trip to China, confirm your entry policy before booking, arrange mobile data before arrival, prepare a mobile payment app plus backup cards and cash, use high-speed rail between major cities, and reserve hotels that accept international guests. A 7-day introduction works well with Beijing, Shanghai, and either Xi'an or Hangzhou.
 
 ## Before you book
 

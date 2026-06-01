@@ -6,9 +6,16 @@ const root = new URL("../", import.meta.url).pathname;
 const contentDir = join(root, "content/guides");
 const publicDir = join(root, "public");
 const outDir = join(root, "dist");
+const site = "https://travel.juzhiic.com";
+const siteName = "China Travel Compass";
+const defaultImage = "/images/guides/first-trip-to-china/beijing-hero.webp";
 
 const escapeHtml = (value = "") =>
   value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+const escapeXml = (value = "") =>
+  escapeHtml(value).replaceAll("'", "&apos;");
+const absolute = (path = "/") => new URL(path, site).href;
+const jsonLd = (data) => `<script type="application/ld+json">${JSON.stringify(data).replaceAll("<", "\\u003c")}</script>`;
 
 function parseGuide(source) {
   const [, frontmatter, body] = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? [];
@@ -62,14 +69,30 @@ function markdown(body) {
   return html;
 }
 
-const layout = ({ title, description, content, current = "" }) => `<!doctype html>
+const layout = ({ title, description, content, path = "/", image = defaultImage, type = "website", current = "", structuredData = [] }) => {
+const url = absolute(path);
+return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(title)} | China Travel Compass</title>
+  <title>${escapeHtml(title)} | ${siteName}</title>
   <meta name="description" content="${escapeHtml(description)}">
+  <link rel="canonical" href="${url}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" href="/rss.xml" type="application/rss+xml" title="${siteName}">
+  <meta property="og:site_name" content="${siteName}">
+  <meta property="og:type" content="${type}">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${url}">
+  <meta property="og:image" content="${absolute(image)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${absolute(image)}">
   <link rel="stylesheet" href="/styles.css">
+  ${structuredData.map(jsonLd).join("\n  ")}
 </head>
 <body>
   <header class="site-header">
@@ -77,9 +100,10 @@ const layout = ({ title, description, content, current = "" }) => `<!doctype htm
     <nav><a class="${current === "home" ? "active" : ""}" href="/">Home</a><a class="${current === "guides" ? "active" : ""}" href="/guides/">Guides</a><a href="/about/">About</a></nav>
   </header>
   ${content}
-  <footer><strong>China Travel Compass</strong><span>Clear, practical guidance for exploring China independently.</span><small>Travel rules can change. Confirm critical details with official sources before departure.</small></footer>
+  <footer><strong>${siteName}</strong><span>Clear, practical guidance for exploring China independently.</span><small><a href="/editorial-policy/">Editorial policy</a> · <a href="/rss.xml">RSS</a> · Travel rules can change. Confirm critical details with official sources before departure.</small></footer>
 </body>
 </html>`;
+};
 
 await rm(outDir, { recursive: true, force: true });
 await mkdir(outDir, { recursive: true });
@@ -90,19 +114,45 @@ const guides = [];
 for (const file of guideFiles) {
   const { meta, body } = parseGuide(await readFile(join(contentDir, file), "utf8"));
   guides.push(meta);
+  const path = `/guides/${meta.slug}/`;
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absolute("/") },
+      { "@type": "ListItem", position: 2, name: "Guides", item: absolute("/guides/") },
+      { "@type": "ListItem", position: 3, name: meta.title, item: absolute(path) }
+    ]
+  };
+  const articleData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: meta.title,
+    description: meta.description,
+    image: [absolute(meta.hero)],
+    datePublished: meta.published,
+    dateModified: meta.updated,
+    mainEntityOfPage: absolute(path),
+    author: { "@type": "Organization", name: meta.author, url: absolute("/about/") },
+    publisher: { "@type": "Organization", name: siteName, url: absolute("/"), logo: { "@type": "ImageObject", url: absolute("/favicon.svg") } }
+  };
   const article = `<main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / <span>${meta.title}</span></nav>
     <section class="article-hero">
       <img src="${meta.hero}" alt="${escapeHtml(meta.heroAlt)}">
-      <div class="article-hero-copy"><span class="eyebrow">${meta.category}</span><h1>${meta.title}</h1><p>${meta.description}</p><span class="meta">Updated ${meta.date} · ${meta.readTime}</span></div>
+      <div class="article-hero-copy"><span class="eyebrow">${meta.category}</span><h1>${meta.title}</h1><p>${meta.description}</p><span class="meta">By ${meta.author} · Updated <time datetime="${meta.updated}">${meta.updated}</time> · ${meta.readTime}</span></div>
     </section>
-    <article class="article">${markdown(body)}</article>
+    <article class="article">
+      <aside class="article-note">Reviewed for practical planning. Time-sensitive details are linked to official sources and should be confirmed before departure.</aside>
+      ${markdown(body)}
+    </article>
   </main>`;
   const dir = join(outDir, "guides", meta.slug);
   await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), layout({ title: meta.title, description: meta.description, content: article }));
+  await writeFile(join(dir, "index.html"), layout({ title: meta.title, description: meta.description, content: article, path, image: meta.hero, type: "article", structuredData: [articleData, breadcrumbData] }));
 }
 
-guides.sort((a, b) => b.date.localeCompare(a.date));
+guides.sort((a, b) => b.updated.localeCompare(a.updated));
 const guide = guides[0];
 const guideCards = guides.map((item) => `<a class="guide-card" href="/guides/${item.slug}/"><img src="${item.hero}" alt="${escapeHtml(item.heroAlt)}"><span class="eyebrow">${item.category}</span><h3>${item.title}</h3><p>${item.description}</p><strong>Read guide →</strong></a>`).join("");
 const home = `<main>
@@ -118,13 +168,26 @@ const home = `<main>
   <section class="featured"><div><span class="eyebrow">Start here</span><h2>Your first China trip, made simpler</h2><p>${guide.description}</p><a href="/guides/${guide.slug}/">Read the guide →</a></div><img src="${guide.hero}" alt="${escapeHtml(guide.heroAlt)}"></section>
   <section class="guide-section"><span class="eyebrow">Latest guides</span><h2>Plan with the details in view</h2><div class="guide-grid">${guideCards}</div></section>
 </main>`;
-await writeFile(join(outDir, "index.html"), layout({ title: "Practical China travel guides", description: "Clear, practical China travel guides for international visitors.", content: home, current: "home" }));
+await writeFile(join(outDir, "index.html"), layout({
+  title: "Practical China travel guides",
+  description: "Clear, practical China travel guides for international visitors.",
+  content: home,
+  current: "home",
+  structuredData: [{
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", name: siteName, url: absolute("/") },
+      { "@type": "Organization", name: siteName, url: absolute("/"), description: "Practical China travel guidance for international visitors." }
+    ]
+  }]
+}));
 
 await mkdir(join(outDir, "guides"), { recursive: true });
 await writeFile(join(outDir, "guides/index.html"), layout({
   title: "Travel guides",
   description: "Practical China travel guides for international visitors.",
   current: "guides",
+  path: "/guides/",
   content: `<main class="guide-section guide-index"><span class="eyebrow">China travel guides</span><h1>Plan clearly. Travel confidently.</h1><p>Start with the essentials, then choose the places and experiences that suit your pace.</p><div class="guide-grid">${guideCards}</div></main>`
 }));
 
@@ -132,8 +195,54 @@ await mkdir(join(outDir, "about"), { recursive: true });
 await writeFile(join(outDir, "about/index.html"), layout({
   title: "About",
   description: "About China Travel Compass.",
-  content: `<main class="simple-page"><span class="eyebrow">About</span><h1>Travel guidance with the details in view.</h1><p>China Travel Compass helps international visitors plan independent trips with practical, easy-to-follow guidance.</p><p>We prioritize clear explanations and links to official sources for details that can change. Always confirm entry policies and booking requirements before departure.</p></main>`
+  path: "/about/",
+  content: `<main class="simple-page"><span class="eyebrow">About</span><h1>Travel guidance with the details in view.</h1><p>China Travel Compass helps international visitors plan independent trips with practical, easy-to-follow guidance.</p><p>We prioritize clear explanations and links to official sources for details that can change. Always confirm entry policies and booking requirements before departure.</p><p>Read our <a href="/editorial-policy/">editorial policy</a> for the standards behind each guide.</p></main>`
 }));
+
+await mkdir(join(outDir, "editorial-policy"), { recursive: true });
+await writeFile(join(outDir, "editorial-policy/index.html"), layout({
+  title: "Editorial policy",
+  description: "How China Travel Compass researches, reviews, and updates practical China travel guides.",
+  path: "/editorial-policy/",
+  content: `<main class="simple-page"><span class="eyebrow">Editorial policy</span><h1>Useful advice, clearly sourced.</h1><p>China Travel Compass publishes practical guidance for international visitors planning independent trips to China.</p><h2>How we work</h2><p>We separate durable travel advice from time-sensitive details. When entry policies, transport rules, payment instructions, or booking requirements may change, we point readers to official sources and recommend confirming the details before departure.</p><h2>Updates</h2><p>Guides display an update date. We revise articles when material facts change and prioritize pages that affect essential trip planning.</p><h2>Images and clarity</h2><p>We use original editorial visuals and descriptive alternative text. Articles begin with a concise answer, then add the context needed to make a practical decision.</p></main>`
+}));
+
+const sitemapPages = [
+  { path: "/", updated: guide.updated },
+  { path: "/guides/", updated: guide.updated },
+  { path: "/about/", updated: guide.updated },
+  { path: "/editorial-policy/", updated: guide.updated },
+  ...guides.map((item) => ({ path: `/guides/${item.slug}/`, updated: item.updated, image: item.hero, imageAlt: item.heroAlt }))
+];
+await writeFile(join(outDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${sitemapPages.map((page) => `  <url>
+    <loc>${escapeXml(absolute(page.path))}</loc>
+    <lastmod>${page.updated}</lastmod>${page.image ? `
+    <image:image><image:loc>${escapeXml(absolute(page.image))}</image:loc><image:caption>${escapeXml(page.imageAlt)}</image:caption></image:image>` : ""}
+  </url>`).join("\n")}
+</urlset>`);
+await writeFile(join(outDir, "robots.txt"), `User-agent: *
+Allow: /
+
+Sitemap: ${absolute("/sitemap.xml")}
+`);
+await writeFile(join(outDir, "rss.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>${siteName}</title>
+    <link>${site}</link>
+    <description>Practical China travel guides for international visitors.</description>
+    <language>en</language>
+${guides.map((item) => `    <item>
+      <title>${escapeXml(item.title)}</title>
+      <link>${escapeXml(absolute(`/guides/${item.slug}/`))}</link>
+      <guid>${escapeXml(absolute(`/guides/${item.slug}/`))}</guid>
+      <pubDate>${new Date(`${item.published}T00:00:00Z`).toUTCString()}</pubDate>
+      <description>${escapeXml(item.description)}</description>
+    </item>`).join("\n")}
+  </channel>
+</rss>`);
 
 if (process.argv.includes("--serve")) {
   createServer(async (req, res) => {
