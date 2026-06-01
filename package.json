@@ -1,0 +1,10 @@
+{
+  "name": "china-travel-compass",
+  "private": true,
+  "version": "1.0.0",
+  "description": "English-language China travel guide published with GitHub Pages.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --serve"
+  }
+}
