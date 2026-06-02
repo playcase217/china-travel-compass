@@ -3,6 +3,7 @@ title: Essential China Apps for English Speakers: WeChat, Alipay, DiDi, Meituan,
 description: Set up the most useful China travel apps as an English speaker, including WeChat, Alipay, DiDi, Dianping, Meituan, maps, translation, and payment backups.
 slug: china-apps-for-english-speakers
 category: First-time essentials
+tags: Travel apps, Payments, Transport, First-time visitors
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 10 min read

@@ -3,6 +3,7 @@ title: Beijing Roast Duck Guide: How to Enjoy the City's Classic Meal
 description: Enjoy Beijing roast duck with confidence: learn what to order, how to eat it, when to reserve, and how to make the meal work for your trip.
 slug: beijing-roast-duck-guide
 category: Beijing food
+tags: Beijing, Food, Local experiences
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 6 min read

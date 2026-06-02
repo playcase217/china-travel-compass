@@ -23,6 +23,7 @@ Each new article should link to relevant existing articles and one clear next st
 - Separate durable advice from details that can change.
 - Link policy, timetable, and booking claims to official sources.
 - Include `published`, `updated`, `author`, `description`, `hero`, and descriptive `heroAlt` frontmatter.
+- Add a focused `tags` list for destination, activity, and practical-planning navigation.
 - Review time-sensitive articles regularly and update the `updated` date.
 - Avoid producing near-duplicate pages for keyword variations.
 

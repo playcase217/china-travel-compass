@@ -3,6 +3,7 @@ title: Beijing Subway Guide for Foreign Visitors: Tickets, Payments, and Tips
 description: Use the Beijing subway confidently with practical advice for foreign visitors on tickets, payment methods, security checks, transfers, and rush hour.
 slug: beijing-subway-guide
 category: Beijing transport
+tags: Beijing, Transport, Subway, First-time visitors
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 7 min read

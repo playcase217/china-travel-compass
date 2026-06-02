@@ -3,6 +3,7 @@ title: Forbidden City Beijing Guide: How to Plan Your First Visit
 description: Plan a smooth first visit to Beijing's Forbidden City with ticket advice, a practical walking route, timing tips, and nearby places worth adding.
 slug: forbidden-city-beijing
 category: Beijing landmarks
+tags: Beijing, Landmarks, Culture, First-time visitors
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 7 min read

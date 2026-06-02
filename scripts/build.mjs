@@ -16,6 +16,9 @@ const escapeXml = (value = "") =>
   escapeHtml(value).replaceAll("'", "&apos;");
 const absolute = (path = "/") => new URL(path, site).href;
 const jsonLd = (data) => `<script type="application/ld+json">${JSON.stringify(data).replaceAll("<", "\\u003c")}</script>`;
+const tagSlug = (tag = "") => tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const tagsFor = (meta) => (meta.tags ?? "").split(",").map((tag) => tag.trim()).filter(Boolean);
+const tagLinks = (tags) => `<div class="tag-list">${tags.map((tag) => `<a class="tag" href="/tags/${tagSlug(tag)}/">${escapeHtml(tag)}</a>`).join("")}</div>`;
 
 function parseGuide(source) {
   const [, frontmatter, body] = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? [];
@@ -69,7 +72,7 @@ function markdown(body) {
   return html;
 }
 
-const layout = ({ title, description, content, path = "/", image = defaultImage, type = "website", current = "", structuredData = [] }) => {
+const layout = ({ title, description, content, path = "/", image = defaultImage, type = "website", current = "", structuredData = [], robots = "index,follow" }) => {
 const url = absolute(path);
 return `<!doctype html>
 <html lang="en">
@@ -78,6 +81,7 @@ return `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)} | ${siteName}</title>
   <meta name="description" content="${escapeHtml(description)}">
+  <meta name="robots" content="${robots}">
   <link rel="canonical" href="${url}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" href="/rss.xml" type="application/rss+xml" title="${siteName}">
@@ -97,7 +101,7 @@ return `<!doctype html>
 <body>
   <header class="site-header">
     <a class="brand" href="/"><span class="brand-mark">中</span><span>China Travel Compass</span></a>
-    <nav><a class="${current === "home" ? "active" : ""}" href="/">Home</a><a class="${current === "guides" ? "active" : ""}" href="/guides/">Guides</a><a href="/about/">About</a></nav>
+    <nav><a class="${current === "home" ? "active" : ""}" href="/">Home</a><a class="${current === "guides" ? "active" : ""}" href="/guides/">Guides</a><a class="${current === "tags" ? "active" : ""}" href="/tags/">Tags</a><a href="/about/">About</a></nav>
   </header>
   ${content}
   <footer><strong>${siteName}</strong><span>Clear, practical guidance for exploring China independently.</span><small><a href="/editorial-policy/">Editorial policy</a> · <a href="/rss.xml">RSS</a> · Travel rules can change. Confirm critical details with official sources before departure.</small></footer>
@@ -113,6 +117,7 @@ const guideFiles = (await readdir(contentDir)).filter((name) => name.endsWith(".
 const guides = [];
 for (const file of guideFiles) {
   const { meta, body } = parseGuide(await readFile(join(contentDir, file), "utf8"));
+  meta.tagList = tagsFor(meta);
   guides.push(meta);
   const path = `/guides/${meta.slug}/`;
   const breadcrumbData = {
@@ -132,6 +137,7 @@ for (const file of guideFiles) {
     image: [absolute(meta.hero)],
     datePublished: meta.published,
     dateModified: meta.updated,
+    keywords: meta.tagList,
     mainEntityOfPage: absolute(path),
     author: { "@type": "Organization", name: meta.author, url: absolute("/about/") },
     publisher: { "@type": "Organization", name: siteName, url: absolute("/"), logo: { "@type": "ImageObject", url: absolute("/favicon.svg") } }
@@ -140,7 +146,7 @@ for (const file of guideFiles) {
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / <span>${meta.title}</span></nav>
     <section class="article-hero">
       <img src="${meta.hero}" alt="${escapeHtml(meta.heroAlt)}">
-      <div class="article-hero-copy"><span class="eyebrow">${meta.category}</span><h1>${meta.title}</h1><p>${meta.description}</p><span class="meta">By ${meta.author} · Updated <time datetime="${meta.updated}">${meta.updated}</time> · ${meta.readTime}</span></div>
+      <div class="article-hero-copy"><span class="eyebrow">${meta.category}</span><h1>${meta.title}</h1><p>${meta.description}</p><span class="meta">By ${meta.author} · Updated <time datetime="${meta.updated}">${meta.updated}</time> · ${meta.readTime}</span>${tagLinks(meta.tagList)}</div>
     </section>
     <article class="article">
       <aside class="article-note">Reviewed for practical planning. Time-sensitive details are linked to official sources and should be confirmed before departure.</aside>
@@ -154,7 +160,8 @@ for (const file of guideFiles) {
 
 guides.sort((a, b) => b.updated.localeCompare(a.updated));
 const guide = guides[0];
-const guideCards = guides.map((item) => `<a class="guide-card" href="/guides/${item.slug}/"><img src="${item.hero}" alt="${escapeHtml(item.heroAlt)}"><span class="eyebrow">${item.category}</span><h3>${item.title}</h3><p>${item.description}</p><strong>Read guide →</strong></a>`).join("");
+const guideCardsFor = (items) => items.map((item) => `<article class="guide-card"><a class="guide-card-main" href="/guides/${item.slug}/"><img src="${item.hero}" alt="${escapeHtml(item.heroAlt)}"><span class="eyebrow">${item.category}</span><h3>${item.title}</h3><p>${item.description}</p><strong>Read guide →</strong></a>${tagLinks(item.tagList)}</article>`).join("");
+const guideCards = guideCardsFor(guides);
 const home = `<main>
   <section class="home-hero">
     <div><span class="eyebrow">Travel China with confidence</span><h1>See more of China.<br><em>Stress less</em> about the details.</h1><p>Practical, carefully researched travel guides for international visitors. Start with the essentials, then build a trip that fits your pace.</p><a class="button" href="/guides/${guide.slug}/">Plan your first trip <span>→</span></a></div>
@@ -191,6 +198,36 @@ await writeFile(join(outDir, "guides/index.html"), layout({
   content: `<main class="guide-section guide-index"><span class="eyebrow">China travel guides</span><h1>Plan clearly. Travel confidently.</h1><p>Start with the essentials, then choose the places and experiences that suit your pace.</p><div class="guide-grid">${guideCards}</div></main>`
 }));
 
+const tags = new Map();
+for (const item of guides) {
+  for (const tag of item.tagList) {
+    if (!tags.has(tag)) tags.set(tag, []);
+    tags.get(tag).push(item);
+  }
+}
+const sortedTags = [...tags.entries()].sort(([a], [b]) => a.localeCompare(b));
+await mkdir(join(outDir, "tags"), { recursive: true });
+await writeFile(join(outDir, "tags/index.html"), layout({
+  title: "Browse travel guide tags",
+  description: "Browse China travel guides by destination, activity, and practical planning topic.",
+  current: "tags",
+  path: "/tags/",
+  content: `<main class="tag-index"><span class="eyebrow">Browse by topic</span><h1>Find the right guide faster.</h1><p>Use tags to explore destinations, practical essentials, and trip ideas.</p><div class="tag-cloud">${sortedTags.map(([tag, items]) => `<a class="tag-summary" href="/tags/${tagSlug(tag)}/"><strong>${escapeHtml(tag)}</strong><span>${items.length} ${items.length === 1 ? "guide" : "guides"}</span></a>`).join("")}</div></main>`
+}));
+for (const [tag, items] of sortedTags) {
+  const path = `/tags/${tagSlug(tag)}/`;
+  const dir = join(outDir, "tags", tagSlug(tag));
+  await mkdir(dir, { recursive: true });
+  await writeFile(join(dir, "index.html"), layout({
+    title: `${tag} travel guides`,
+    description: `Browse ${items.length} practical China travel ${items.length === 1 ? "guide" : "guides"} tagged ${tag}.`,
+    current: "tags",
+    path,
+    robots: items.length > 1 ? "index,follow" : "noindex,follow",
+    content: `<main class="guide-section guide-index"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/tags/">Tags</a> / <span>${escapeHtml(tag)}</span></nav><span class="eyebrow">Tagged guides</span><h1>${escapeHtml(tag)}</h1><p>${items.length} practical ${items.length === 1 ? "guide" : "guides"} for your China trip.</p><div class="guide-grid">${guideCardsFor(items)}</div></main>`
+  }));
+}
+
 await mkdir(join(outDir, "about"), { recursive: true });
 await writeFile(join(outDir, "about/index.html"), layout({
   title: "About",
@@ -210,8 +247,10 @@ await writeFile(join(outDir, "editorial-policy/index.html"), layout({
 const sitemapPages = [
   { path: "/", updated: guide.updated },
   { path: "/guides/", updated: guide.updated },
+  { path: "/tags/", updated: guide.updated },
   { path: "/about/", updated: guide.updated },
   { path: "/editorial-policy/", updated: guide.updated },
+  ...sortedTags.filter(([, items]) => items.length > 1).map(([tag, items]) => ({ path: `/tags/${tagSlug(tag)}/`, updated: items[0].updated })),
   ...guides.map((item) => ({ path: `/guides/${item.slug}/`, updated: item.updated, image: item.hero, imageAlt: item.heroAlt }))
 ];
 await writeFile(join(outDir, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
@@ -240,6 +279,7 @@ ${guides.map((item) => `    <item>
       <guid>${escapeXml(absolute(`/guides/${item.slug}/`))}</guid>
       <pubDate>${new Date(`${item.published}T00:00:00Z`).toUTCString()}</pubDate>
       <description>${escapeXml(item.description)}</description>
+${item.tagList.map((tag) => `      <category>${escapeXml(tag)}</category>`).join("\n")}
     </item>`).join("\n")}
   </channel>
 </rss>`);

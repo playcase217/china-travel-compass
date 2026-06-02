@@ -3,6 +3,7 @@ title: Temple of Heaven Beijing Guide: Architecture, Parks, and Local Life
 description: Discover how to visit Beijing's Temple of Heaven, including the best time to go, what to see, ticket tips, and an easy half-day plan.
 slug: temple-of-heaven-beijing
 category: Beijing landmarks
+tags: Beijing, Landmarks, Parks, Culture
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 6 min read

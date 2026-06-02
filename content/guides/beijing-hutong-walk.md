@@ -3,6 +3,7 @@ title: Beijing Hutong Walk: A Relaxed Shichahai Route for First-Time Visitors
 description: Explore Beijing beyond the headline sights with a relaxed Shichahai hutong walk, practical etiquette, route ideas, and useful planning tips.
 slug: beijing-hutong-walk
 category: Beijing neighborhoods
+tags: Beijing, Neighborhoods, Culture, Walking routes
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 6 min read

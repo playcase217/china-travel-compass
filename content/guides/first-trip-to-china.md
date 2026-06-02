@@ -3,6 +3,7 @@ title: Your First Trip to China: A Practical Starter Guide
 description: A clear first-time guide to planning a China trip, from payments and mobile data to trains, hotels, and a realistic 7-day route.
 slug: first-trip-to-china
 category: First-time essentials
+tags: First-time visitors, Trip planning, Payments, Transport
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 9 min read

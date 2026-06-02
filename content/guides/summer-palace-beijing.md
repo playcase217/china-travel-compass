@@ -3,6 +3,7 @@ title: Summer Palace Beijing Guide: A Relaxed Half Day by the Lake
 description: Plan a relaxed visit to Beijing's Summer Palace with a scenic walking route, seasonal advice, ticket tips, and practical transport guidance.
 slug: summer-palace-beijing
 category: Beijing landmarks
+tags: Beijing, Landmarks, Parks, Culture
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 6 min read

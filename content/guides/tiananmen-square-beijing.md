@@ -3,6 +3,7 @@ title: Tiananmen Square Beijing Guide: Reservations and a Smart First Visit
 description: Visit Tiananmen Square with confidence using practical reservation advice, security-check tips, timing guidance, and an easy Forbidden City pairing.
 slug: tiananmen-square-beijing
 category: Beijing landmarks
+tags: Beijing, Landmarks, First-time visitors, Reservations
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 6 min read

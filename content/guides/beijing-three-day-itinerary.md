@@ -3,6 +3,7 @@ title: 3 Days in Beijing: A First-Time Itinerary That Does Not Feel Rushed
 description: Use this balanced three-day Beijing itinerary to see the Forbidden City, Mutianyu Great Wall, Temple of Heaven, Summer Palace, and hutongs.
 slug: beijing-three-day-itinerary
 category: Beijing itineraries
+tags: Beijing, Itineraries, First-time visitors, Walking routes
 published: 2026-06-01
 updated: 2026-06-01
 readTime: 8 min read
