@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Suzhou classical garden day trip scene</title>
+  <desc id="desc">A calm illustrated Suzhou garden with white walls, dark tiled roofs, a pond, stone bridge, rocks, willow branches, and a traveler seen from behind.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfeef2"/>
+      <stop offset="0.52" stop-color="#f5efe4"/>
+      <stop offset="1" stop-color="#e5dbc8"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9eb9b7"/>
+      <stop offset="0.55" stop-color="#6f9290"/>
+      <stop offset="1" stop-color="#3f6768"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4c3a5"/>
+      <stop offset="1" stop-color="#9f8d72"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#203033" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1285" cy="150" r="88" fill="#fff4d9" opacity="0.55"/>
+  <path d="M0 318 C220 260 384 304 560 246 C760 180 945 264 1120 222 C1325 174 1434 222 1600 190 L1600 520 L0 520 Z" fill="#b3c2b1" opacity="0.38"/>
+  <path d="M0 380 C244 335 445 374 646 318 C855 260 1018 336 1195 300 C1374 263 1474 308 1600 276 L1600 560 L0 560 Z" fill="#728d78" opacity="0.42"/>
+
+  <rect x="0" y="382" width="1600" height="130" fill="#f1eee4"/>
+  <path d="M0 392 H1600" stroke="#c5c0b5" stroke-width="6"/>
+  <path d="M80 486 C250 448 330 462 480 494 C652 530 800 474 960 506 C1130 540 1305 478 1520 508" fill="none" stroke="#dad6cb" stroke-width="10" opacity="0.8"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M900 360 L1015 256 L1130 360 Z" fill="#263138"/>
+    <path d="M872 370 H1158 L1128 402 H905 Z" fill="#2d3b42"/>
+    <rect x="922" y="402" width="182" height="108" fill="#f7f2e6"/>
+    <rect x="954" y="425" width="58" height="86" fill="#3f554f"/>
+    <rect x="1024" y="425" width="48" height="86" fill="#59736b"/>
+    <path d="M915 402 H1110" stroke="#c7a766" stroke-width="8"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M340 386 L462 272 L584 386 Z" fill="#253039"/>
+    <path d="M312 396 H612 L580 430 H346 Z" fill="#2f3c44"/>
+    <rect x="358" y="430" width="210" height="86" fill="#f5f0e4"/>
+    <path d="M391 516 V444 M448 516 V444 M505 516 V444" stroke="#51665f" stroke-width="12"/>
+  </g>
+
+  <path d="M0 512 H1600 V900 H0 Z" fill="url(#water)"/>
+  <path d="M70 592 C246 552 388 604 550 574 C742 538 854 604 1035 568 C1236 528 1378 594 1545 548" fill="none" stroke="#d6e3d8" stroke-width="9" opacity="0.45"/>
+  <path d="M110 670 C300 630 470 698 638 650 C826 596 1050 690 1228 642 C1390 600 1500 640 1600 616" fill="none" stroke="#d7e4da" stroke-width="7" opacity="0.28"/>
+  <path d="M300 455 C430 533 560 520 690 455 C622 566 398 584 300 455 Z" fill="#d9d4c6" stroke="#9d927f" stroke-width="10"/>
+  <path d="M315 456 C430 510 562 505 675 456" fill="none" stroke="#786f61" stroke-width="7"/>
+
+  <path d="M1095 444 C1125 392 1190 379 1232 421 C1270 461 1248 520 1183 527 C1128 533 1068 504 1095 444 Z" fill="#5d6558"/>
+  <path d="M1162 402 C1188 348 1264 356 1284 410 C1303 460 1258 487 1205 468 C1168 455 1142 440 1162 402 Z" fill="#71786b"/>
+  <path d="M1220 442 C1265 424 1327 450 1326 503 C1325 551 1252 563 1208 534 C1167 507 1169 462 1220 442 Z" fill="#50594f"/>
+
+  <path d="M0 762 C180 700 318 716 470 754 C675 805 858 724 1035 750 C1238 779 1395 728 1600 682 L1600 900 L0 900 Z" fill="url(#path)"/>
+  <path d="M710 900 C760 772 884 675 998 610 C1078 565 1150 535 1198 508" fill="none" stroke="#816f5d" stroke-width="22" opacity="0.3"/>
+
+  <g stroke="#516b58" stroke-linecap="round" opacity="0.8">
+    <path d="M142 0 C150 130 120 240 170 354" stroke-width="18"/>
+    <path d="M164 92 C258 162 286 244 264 350" stroke-width="8"/>
+    <path d="M156 66 C86 150 66 232 84 346" stroke-width="7"/>
+    <path d="M190 125 C240 230 232 306 208 396" stroke-width="6"/>
+  </g>
+  <g fill="#7b956d" opacity="0.78">
+    <ellipse cx="252" cy="168" rx="18" ry="6" transform="rotate(36 252 168)"/>
+    <ellipse cx="94" cy="162" rx="18" ry="6" transform="rotate(-42 94 162)"/>
+    <ellipse cx="270" cy="252" rx="16" ry="5" transform="rotate(48 270 252)"/>
+    <ellipse cx="78" cy="248" rx="16" ry="5" transform="rotate(-35 78 248)"/>
+    <ellipse cx="214" cy="316" rx="16" ry="5" transform="rotate(62 214 316)"/>
+  </g>
+
+  <g transform="translate(1030 596)" filter="url(#softShadow)">
+    <path d="M54 270 C72 218 82 153 70 112 C62 84 20 84 12 112 C0 153 12 218 30 270 Z" fill="#343d42"/>
+    <path d="M20 126 C42 114 58 116 73 128 L86 214 C56 232 28 230 0 214 Z" fill="#c7b49a"/>
+    <circle cx="42" cy="70" r="28" fill="#c69b75"/>
+    <path d="M17 70 C24 35 62 30 75 60 C66 50 42 46 18 70 Z" fill="#4b3428"/>
+    <path d="M14 100 C34 124 58 124 78 100 L86 142 C58 164 32 164 6 142 Z" fill="#f0e8dc"/>
+    <path d="M28 270 L20 332 M58 270 L70 332" stroke="#2f363a" stroke-width="16" stroke-linecap="round"/>
+    <path d="M8 160 L-28 218 M78 160 L112 220" stroke="#c7b49a" stroke-width="14" stroke-linecap="round"/>
+    <path d="M16 146 C38 136 58 137 78 148 L70 226 C52 238 30 238 12 226 Z" fill="#5c756b"/>
+  </g>
+
+  <path d="M0 890 H1600" stroke="#22383a" stroke-width="20" opacity="0.18"/>
+</svg>
