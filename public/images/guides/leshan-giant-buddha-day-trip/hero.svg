@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Leshan Giant Buddha day trip scene</title>
+  <desc id="desc">An illustrated river view of the Leshan Giant Buddha cliff, green hills, boats, and a traveler looking across the water.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dcecf0"/>
+      <stop offset="0.55" stop-color="#f4e7d3"/>
+      <stop offset="1" stop-color="#d5c1a3"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#91b4b7"/>
+      <stop offset="0.58" stop-color="#587f82"/>
+      <stop offset="1" stop-color="#315b60"/>
+    </linearGradient>
+    <linearGradient id="cliff" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b78b66"/>
+      <stop offset="0.52" stop-color="#8b604a"/>
+      <stop offset="1" stop-color="#5d453a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#213033" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1280" cy="145" r="92" fill="#fff1ce" opacity="0.55"/>
+
+  <path d="M0 322 C210 268 365 308 544 248 C752 178 920 266 1100 220 C1290 171 1442 232 1600 194 L1600 560 L0 560 Z" fill="#9bb18d" opacity="0.42"/>
+  <path d="M0 392 C225 330 392 382 610 322 C832 260 1002 344 1195 300 C1398 254 1488 302 1600 276 L1600 600 L0 600 Z" fill="#5f8068" opacity="0.52"/>
+
+  <path d="M955 210 C1110 190 1300 242 1405 358 C1515 480 1512 670 1600 748 L1600 900 L750 900 C804 780 832 650 846 515 C860 375 898 250 955 210 Z" fill="url(#cliff)"/>
+  <path d="M1022 260 C1134 236 1294 288 1378 390 C1465 495 1430 624 1512 742 L1600 820 L1600 900 L930 900 C974 768 1002 610 1005 470 C1008 368 1004 302 1022 260 Z" fill="#7a5544" opacity="0.48"/>
+  <path d="M900 470 C962 420 1018 410 1072 438 C1128 468 1147 530 1132 598 C1114 680 1046 728 970 708 C894 686 850 612 868 544 C878 508 886 488 900 470 Z" fill="#c49a70" opacity="0.88" filter="url(#shadow)"/>
+  <path d="M950 452 C964 424 1018 424 1032 452 C1014 444 971 444 950 452 Z" fill="#5a3f35"/>
+  <ellipse cx="992" cy="498" rx="54" ry="64" fill="#bf9169"/>
+  <path d="M955 500 C982 526 1010 526 1034 500" fill="none" stroke="#6a4a3b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M918 585 C966 548 1028 548 1074 585 C1058 652 1032 694 998 706 C958 690 932 648 918 585 Z" fill="#b88863"/>
+  <path d="M905 622 C940 650 1058 650 1092 622" fill="none" stroke="#765344" stroke-width="10" opacity="0.65"/>
+  <path d="M892 360 C930 318 995 304 1060 326 C1120 347 1160 396 1166 460" fill="none" stroke="#dfbc8d" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
+  <g fill="#2f5e45" opacity="0.82">
+    <circle cx="880" cy="366" r="46"/>
+    <circle cx="1190" cy="342" r="58"/>
+    <circle cx="1348" cy="454" r="50"/>
+    <circle cx="908" cy="728" r="44"/>
+    <circle cx="1504" cy="672" r="68"/>
+  </g>
+
+  <path d="M0 510 C165 472 336 520 520 492 C714 462 852 520 1005 492 C1210 454 1400 524 1600 480 L1600 900 L0 900 Z" fill="url(#river)"/>
+  <path d="M72 610 C260 565 392 632 576 594 C746 558 900 622 1072 584 C1276 540 1428 610 1600 568" fill="none" stroke="#d9e5da" stroke-width="9" opacity="0.36"/>
+  <path d="M0 720 C212 680 388 746 574 706 C792 660 946 742 1148 694 C1320 654 1480 686 1600 664" fill="none" stroke="#d9e5da" stroke-width="7" opacity="0.24"/>
+
+  <g transform="translate(340 610)" filter="url(#shadow)">
+    <path d="M0 82 C92 118 254 116 352 82 L316 136 C214 166 104 166 34 136 Z" fill="#d5c2a2"/>
+    <path d="M44 82 C128 50 226 48 312 82" fill="none" stroke="#66513e" stroke-width="14" stroke-linecap="round"/>
+    <rect x="146" y="26" width="72" height="58" fill="#76563c"/>
+    <path d="M120 36 H244 L216 12 H148 Z" fill="#344547"/>
+    <path d="M36 138 C118 166 252 166 326 138" fill="none" stroke="#f0e5cc" stroke-width="8" opacity="0.85"/>
+  </g>
+
+  <path d="M0 792 C174 730 312 748 476 790 C660 838 838 780 1030 802 C1250 827 1416 780 1600 734 L1600 900 L0 900 Z" fill="#a99477"/>
+  <g transform="translate(208 610)" filter="url(#shadow)">
+    <path d="M50 270 C70 220 78 154 66 116 C56 86 18 86 8 116 C-4 154 8 220 28 270 Z" fill="#2f3a3d"/>
+    <path d="M14 132 C36 120 54 122 70 134 L82 216 C54 232 28 232 0 216 Z" fill="#c9b092"/>
+    <circle cx="40" cy="76" r="27" fill="#c89a73"/>
+    <path d="M16 76 C26 42 64 40 76 66 C62 58 39 54 16 76 Z" fill="#443026"/>
+    <path d="M12 104 C34 126 58 126 76 104 L82 144 C56 164 30 164 6 144 Z" fill="#eee3d5"/>
+    <path d="M26 270 L18 332 M56 270 L68 332" stroke="#2f3a3d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M16 148 C36 138 58 138 78 150 L70 226 C52 238 30 238 12 226 Z" fill="#536b65"/>
+  </g>
+</svg>
