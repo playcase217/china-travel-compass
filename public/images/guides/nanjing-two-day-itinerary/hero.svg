@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Nanjing city wall and Qinhuai River evening</title>
+  <desc id="desc">An illustrated Nanjing scene with an ancient city wall, Qinhuai River boats, modern skyline, gingko trees, and an international visitor walking beside the water.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#526f9a"/><stop offset="0.56" stop-color="#d98267"/><stop offset="1" stop-color="#f1c88f"/></linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#507e91"/><stop offset="1" stop-color="#26495f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#253746" flood-opacity="0.28"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1264" cy="156" r="82" fill="#ffe2a3" opacity="0.78"/>
+  <path d="M0 504 C210 454 376 514 584 466 C782 418 956 494 1160 442 C1338 396 1474 444 1600 416 L1600 598 L0 598 Z" fill="#526873" opacity="0.54"/>
+  <g fill="#53636a" filter="url(#shadow)"><path d="M88 540 L88 300 L278 300 L278 540 Z"/><path d="M300 540 L300 216 L414 216 L414 540 Z"/><path d="M436 540 L436 330 L556 330 L556 540 Z"/><path d="M1078 540 L1078 250 L1194 250 L1194 540 Z"/><path d="M1222 540 L1222 170 L1340 170 L1340 540 Z"/><path d="M1364 540 L1364 294 L1470 294 L1470 540 Z"/></g>
+  <g fill="#ffd583" opacity="0.85"><path d="M116 330 H250 V350 H116 Z M116 374 H250 V394 H116 Z M116 418 H250 V438 H116 Z"/><path d="M326 252 H388 V274 H326 Z M326 300 H388 V322 H326 Z M326 348 H388 V370 H326 Z"/><path d="M1252 210 H1310 V234 H1252 Z M1252 258 H1310 V282 H1252 Z M1252 306 H1310 V330 H1252 Z M1252 354 H1310 V378 H1252 Z"/></g>
+  <path d="M0 552 C198 520 380 564 578 538 C770 512 960 560 1164 528 C1344 498 1484 536 1600 508 L1600 900 L0 900 Z" fill="url(#river)"/>
+  <path d="M0 648 C210 616 394 672 600 638 C798 606 990 666 1188 628 C1368 594 1488 628 1600 604" fill="none" stroke="#e8d39c" stroke-width="9" opacity="0.54"/>
+  <path d="M0 744 C202 716 398 762 602 730 C800 698 996 758 1200 718 C1360 688 1490 720 1600 696" fill="none" stroke="#d8e1dc" stroke-width="7" opacity="0.32"/>
+  <g transform="translate(408 390)" filter="url(#shadow)"><path d="M0 174 L0 28 L92 28 L92 0 L174 0 L174 28 L270 28 L270 174 Z" fill="#9b735a"/><path d="M-12 34 H282" stroke="#e5c78d" stroke-width="14"/><path d="M78 174 V82 H192 V174" fill="#3f4a4c"/><rect x="122" y="108" width="26" height="66" fill="#d7bb7e"/></g>
+  <g transform="translate(552 622)" filter="url(#shadow)"><path d="M0 88 C88 122 232 122 324 88 L286 136 C194 164 102 164 38 136 Z" fill="#d8bf92"/><path d="M40 86 C116 54 208 54 286 86" fill="none" stroke="#675143" stroke-width="14" stroke-linecap="round"/><rect x="128" y="28" width="64" height="58" fill="#7c573f"/><path d="M102 38 H218 L192 10 H128 Z" fill="#374f52"/></g>
+  <path d="M0 806 C180 756 348 790 518 834 C688 878 848 786 1046 820 C1240 852 1422 798 1600 744 L1600 900 L0 900 Z" fill="#738261"/>
+  <g fill="#d6ab4d"><path d="M130 692 C88 644 92 588 132 546 C122 600 154 642 202 674 C164 664 144 674 130 692 Z"/><path d="M248 702 C210 648 220 594 264 554 C250 612 282 654 330 684 C294 674 268 682 248 702 Z"/><path d="M1430 700 C1390 646 1402 594 1446 552 C1430 610 1462 652 1510 682 C1472 674 1450 682 1430 700 Z"/></g>
+  <g transform="translate(1072 598)" filter="url(#shadow)"><circle cx="76" cy="52" r="30" fill="#c7906f"/><path d="M44 52 C44 18 94 8 112 38 C92 30 66 32 44 52 Z" fill="#30393d"/><path d="M26 118 C50 88 102 88 128 118 L146 262 H8 Z" fill="#ede7d9"/><path d="M34 122 C56 136 98 136 120 122 L130 222 H24 Z" fill="#516d87"/><path d="M36 256 L22 322 M116 256 L132 322" stroke="#29373f" stroke-width="18" stroke-linecap="round"/><path d="M28 138 L-8 210 M128 138 L164 196" stroke="#c7906f" stroke-width="14" stroke-linecap="round"/><rect x="-26" y="184" width="48" height="76" rx="7" fill="#315466" transform="rotate(-18 -26 184)"/><circle cx="0" cy="200" r="8" fill="#f1cc75"/></g>
+</svg>
