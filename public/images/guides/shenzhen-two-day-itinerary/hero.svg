@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Shenzhen waterfront and skyline at sunset</title>
+  <desc id="desc">An illustrated Shenzhen waterfront at sunset with modern towers, palm trees, a metro train, and an international visitor looking across the bay.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4d85a6"/><stop offset="0.58" stop-color="#f1ae72"/><stop offset="1" stop-color="#f4d5a5"/></linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fa7ad"/><stop offset="1" stop-color="#1f596c"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6e4e2"/><stop offset="1" stop-color="#547b86"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#173b4a" flood-opacity="0.26"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1260" cy="156" r="92" fill="#fff0bf" opacity="0.9"/>
+  <path d="M0 440 C220 378 370 436 572 368 C766 304 982 410 1168 344 C1328 286 1464 362 1600 314 L1600 548 L0 548 Z" fill="#769b92" opacity="0.52"/>
+  <g filter="url(#shadow)">
+    <path d="M164 508 L164 214 L262 142 L262 508 Z" fill="url(#glass)"/>
+    <path d="M284 508 L284 302 L364 244 L364 508 Z" fill="#638894"/>
+    <path d="M386 508 L386 126 L510 72 L510 508 Z" fill="url(#glass)"/>
+    <path d="M538 508 L538 246 L624 168 L624 508 Z" fill="#547783"/>
+    <path d="M950 508 L950 284 L1038 214 L1038 508 Z" fill="#638894"/>
+    <path d="M1062 508 L1062 156 L1184 94 L1184 508 Z" fill="url(#glass)"/>
+    <path d="M1214 508 L1214 262 L1302 194 L1302 508 Z" fill="#527783"/>
+    <path d="M1332 508 L1332 216 L1428 154 L1428 508 Z" fill="url(#glass)"/>
+  </g>
+  <g fill="#f7e5a3" opacity="0.82"><path d="M190 244 H236 V264 H190 Z M190 286 H236 V306 H190 Z M190 328 H236 V348 H190 Z M190 370 H236 V390 H190 Z"/><path d="M414 168 H480 V190 H414 Z M414 216 H480 V238 H414 Z M414 264 H480 V286 H414 Z M414 312 H480 V334 H414 Z M414 360 H480 V382 H414 Z M414 408 H480 V430 H414 Z"/><path d="M1090 206 H1158 V228 H1090 Z M1090 254 H1158 V276 H1090 Z M1090 302 H1158 V324 H1090 Z M1090 350 H1158 V372 H1090 Z M1090 398 H1158 V420 H1090 Z"/></g>
+  <path d="M0 498 C194 472 376 510 562 486 C764 458 962 510 1162 478 C1340 450 1464 486 1600 462 L1600 900 L0 900 Z" fill="url(#water)"/>
+  <path d="M0 594 C224 558 388 614 592 576 C782 538 994 602 1180 562 C1346 528 1476 570 1600 542" fill="none" stroke="#e4e7c8" stroke-width="9" opacity="0.42"/>
+  <path d="M0 692 C198 664 390 714 594 680 C790 648 988 710 1198 668 C1364 634 1486 674 1600 646" fill="none" stroke="#cbe2d7" stroke-width="7" opacity="0.34"/>
+  <g transform="translate(132 440)" filter="url(#shadow)"><path d="M0 66 C144 14 310 16 462 66" fill="none" stroke="#d4d5c7" stroke-width="20"/><path d="M0 66 C144 14 310 16 462 66" fill="none" stroke="#f1bf75" stroke-width="6"/><path d="M72 54 L72 124 M228 26 L228 124 M386 48 L386 124" stroke="#d4d5c7" stroke-width="15"/><path d="M48 124 H420" stroke="#425d6a" stroke-width="18"/></g>
+  <g transform="translate(280 394)" filter="url(#shadow)"><rect width="232" height="66" rx="10" fill="#eef0e5"/><path d="M0 12 H232" stroke="#e15c50" stroke-width="12"/><rect x="22" y="20" width="170" height="28" rx="4" fill="#517885"/><rect x="34" y="25" width="38" height="18" rx="2" fill="#c2e1df"/><rect x="88" y="25" width="38" height="18" rx="2" fill="#c2e1df"/><rect x="142" y="25" width="38" height="18" rx="2" fill="#c2e1df"/><circle cx="34" cy="52" r="8" fill="#243b47"/><circle cx="198" cy="52" r="8" fill="#243b47"/></g>
+  <path d="M0 774 C176 726 338 762 502 808 C678 858 850 764 1042 804 C1246 848 1416 794 1600 738 L1600 900 L0 900 Z" fill="#35584e"/>
+  <g fill="#2d694f"><path d="M105 708 C82 630 104 572 154 530 C136 594 156 642 202 684 C158 666 130 674 105 708 Z"/><path d="M208 716 C188 630 216 580 268 540 C240 608 264 658 314 694 C264 678 234 682 208 716 Z"/><path d="M1450 722 C1428 634 1454 578 1510 534 C1484 610 1510 658 1560 694 C1510 680 1478 688 1450 722 Z"/></g>
+  <g transform="translate(1020 588)" filter="url(#shadow)"><circle cx="84" cy="54" r="30" fill="#c98d6e"/><path d="M52 54 C54 18 102 8 120 38 C98 30 74 34 52 54 Z" fill="#283940"/><path d="M30 122 C54 88 112 88 140 122 L158 270 H12 Z" fill="#edf1e7"/><path d="M38 126 C62 142 110 142 134 126 L142 232 H30 Z" fill="#477e84"/><path d="M42 264 L30 328 M130 264 L144 328" stroke="#26363d" stroke-width="18" stroke-linecap="round"/><path d="M30 140 L-6 218 M140 140 L178 198" stroke="#c98d6e" stroke-width="14" stroke-linecap="round"/><rect x="-24" y="190" width="48" height="72" rx="7" fill="#25495a" transform="rotate(-18 -24 190)"/><circle cx="2" cy="206" r="8" fill="#f3cf78"/></g>
+</svg>
